@@ -1,0 +1,72 @@
+(function() {
+  var initContactsMap, mapStyles;
+
+  mapStyles = [
+    {
+      'featureType': 'all',
+      'stylers': [
+        {
+          'saturation': -100
+        }, {
+          'hue': '#c1c1c1'
+        }, {
+          'lightness': 0
+        }
+      ]
+    }, {
+      'featureType': 'road',
+      'stylers': [
+        {
+          'hue': '#e3e3e3'
+        }, {
+          'saturation': -100
+        }
+      ]
+    }
+  ];
+
+  initContactsMap = function(newLat, newLng) {
+    var map, mapDiv, mapIcon, mapLatLng, marker;
+    mapDiv = document.getElementById('map');
+    mapLatLng = {
+      lat: newLat,
+      lng: newLng
+    };
+    mapIcon = $('#map').data('pin');
+    map = new google.maps.Map(mapDiv, {
+      disableDefaultUI: true,
+      scrollwheel: false,
+      center: mapLatLng,
+      zoom: 16
+    });
+    map.set('styles', mapStyles);
+    return marker = new google.maps.Marker({
+      position: mapLatLng,
+      icon: mapIcon,
+      map: map
+    });
+  };
+
+  $(document).ready(function() {
+    var defaultLat, defaultLng;
+    if ($("#map").length) {
+      defaultLat = $('.map-button.active').data('lat');
+      defaultLng = $('.map-button.active').data('lng');
+      initContactsMap(defaultLat, defaultLng);
+      return $('.map-button').on('click', function(e) {
+        var newLat, newLng;
+        e.preventDefault();
+        if ($(this).hasClass('active')) {
+          return false;
+        } else {
+          $('.map-section__buttons').find('.active').removeClass('active');
+          $(this).addClass('active');
+          newLat = $(this).data('lat');
+          newLng = $(this).data('lng');
+          return initContactsMap(newLat, newLng);
+        }
+      });
+    }
+  });
+
+}).call(this);
