@@ -269,8 +269,14 @@ template {
   flex-shrink: 0;
   width: 100%;
   height: 100%;
-  position: relative
+  position: relative;
+  opacity: 0;
 }
+.swiper-slide.swiper-slide-active { opacity: 1; }
+
+.swiper-slide img { opacity: 0; }
+
+.swiper-slide.swiper-slide-active img { opacity: 1; }
 
 .swiper-container-autoheight, .swiper-container-autoheight .swiper-slide {
   height: auto
@@ -1034,16 +1040,19 @@ body {
   overflow: hidden
 }
 
-.products-list__container {
-  margin: 40px -10px 0 -10px
-}
+.products-list__container { margin-top: 40px; }
 
 .products-item {
   display: inline-block;
   vertical-align: top;
-  width: 33.3333%;
-  padding: 0 10px
+  width: 100%;
+  padding: 40px 0;
+  background: url('../images/product-1.png') no-repeat;
+  background-size: cover;
+  color: #fff;
 }
+
+.products-page .products-item { background: none; }
 
 .products-item img {
   width: 100%;
@@ -1051,63 +1060,59 @@ body {
 }
 
 .products-item h6 {
-  padding: 10px 25px
+  padding: 10px 0px;
+  color: #fff;
+  font-size: 24px;
+  line-height: normal;
+  max-width: 350px;
 }
 
-.products-item .product-desc {
-  position: relative;
-  padding: 16px 25px 20px 25px
+.products-page .products-item h6 {
+  color: #323232;
+  max-width: inherit;
 }
+
+.products-item p { margin-top: 30px; }
+
+.products-item .product-desc { position: relative; }
 
 .products-item .product-desc::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 25px;
+  left: 0;
   display: block;
   width: 30px;
   height: 2px;
   background: #aeeafe
 }
 
-.products-item .product-desc p {
-  color: #323232
+.product-big-image {
+   width: 100%;
+   height: auto;
+   position: relative;
+   z-index: 100;
 }
 
-.products-item__wrap {
-  display: block;
-  width: 100%;
-  text-decoration: none;
-  background: #fff;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: -webkit-box-shadow .3s;
-  transition: -webkit-box-shadow .3s;
-  -o-transition: box-shadow .3s;
-  transition: box-shadow .3s;
-  transition: box-shadow .3s, -webkit-box-shadow .3s
-}
+.products-item .product-desc p { color: #323232; }
 
-.products-item__wrap:hover {
-  -webkit-box-shadow: 0px 0px 19.6px 0.4px rgba(61, 178, 216, 0.15);
-  box-shadow: 0px 0px 19.6px 0.4px rgba(61, 178, 216, 0.15)
-}
 
-.products-page .products-item {
-  margin-top: 20px
-}
+.products-page .products-item p { margin-top: 0; }
 
-.products-page .products-item h6 {
-  padding: 20px 25px 15px 25px
+.products-page .products-item__wrap { max-width: inherit; }
+
+
+.products-page .products-item .product-desc {
+  padding-top: 20px;
+  margin-top: 10px;
 }
 
 .products-page .products-list__container {
-  padding-bottom: 160px
+  padding-bottom: 100px;
+  margin-top: 0;
 }
 
-.download {
-  margin-top: 24px
-}
+.download { margin-top: 24px; }
 
 .download a {
   padding-left: 55px;
@@ -1194,9 +1199,7 @@ body {
   background-size: 100% 100%
 }
 
-.bg-wrapper .from-text span {
-  font-size: 60px
-}
+.bg-wrapper .from-text span { font-size: 60px; }
 
 .bg-wrapper .products-circle {
   position: absolute;
@@ -1480,6 +1483,7 @@ body {
     -webkit-box-shadow: 0px 1px 6px 0px rgba(174, 234, 254, 0.4);
     box-shadow: 0px 1px 6px 0px rgba(174, 234, 254, 0.4)
   }
+  .products-list__container { margin-top: 0; }
   .main-menu {
     position: fixed;
     padding: 59px 0 40px 0;
@@ -1902,6 +1906,12 @@ body {
   background-position: 375px 80px
 }
 
+.certifications-section .first img {
+  margin-top: 75px;
+  width: 100%;
+  height: auto;
+}
+
 .certifications-section .certificate-container {
   margin-top: 45px;
   text-align: center
@@ -2173,12 +2183,6 @@ body {
   .certifications-section .certificate-wrapper::before {
     display: none
   }
-  .products-item {
-    padding: 0 5px
-  }
-  .products-list__container {
-    margin: 40px -5px 0 -5px
-  }
   .services-section .dotted-list {
     padding-left: 50px
   }
@@ -2191,6 +2195,7 @@ body {
   .section .container {
     padding-bottom: 96px
   }
+  /*.products-section .container { padding-bottom: 0; }*/
   .section .button {
     position: absolute;
     bottom: 0;
@@ -2209,14 +2214,7 @@ body {
     left: auto;
     right: 460px
   }
-  .products-item {
-    width: 100%;
-    margin-top: 30px;
-    padding: 0
-  }
-  .products-item:first-child {
-    margin-top: 0
-  }
+  .products-item { width: 100%; }
   .products-item__wrap {
     max-width: 320px;
     margin: 0 auto
@@ -2443,16 +2441,18 @@ body {
   background: url(../images/about-bottom-circles.png) bottom center no-repeat
 }
 
-.about-section-3 img {
-  -webkit-box-shadow: 0px 0px 19.4px 0.6px rgba(148, 228, 255, 0.35);
-  box-shadow: 0px 0px 19.4px 0.6px rgba(148, 228, 255, 0.35);
-  margin-bottom: 50px
-}
-
 .about-section-3 p {
   max-width: 780px;
   margin: 50px auto 0 auto
 }
+
+.about-section-3 .about-big-img {
+  margin: 50px 0 0 0;
+  width: 100%;
+  height: auto;
+}
+
+.about-section-3 .about-big-img.mobile { display: none; }
 
 @media screen and (max-width: 960px) {
   .about-section-1 {
@@ -2504,9 +2504,7 @@ body {
   .about-section-1 .about-text {
     padding-top: 30px
   }
-  .about-section-2 {
-    padding: 80px 0 50px 0
-  }
+  .about-section-2 { padding: 80px 0 50px 0 }
   .about-section-2 .bg-wrapper {
     width: 100%;
     left: 0;
@@ -2515,22 +2513,15 @@ body {
     -ms-transform: translateX(0);
     transform: translateX(0)
   }
-  .bg-wrapper .from-text {
-    font-size: 60px
-  }
-  .bg-wrapper .from-text span {
-    font-size: 30px
-  }
+  .bg-wrapper .from-text { font-size: 60px }
+  .bg-wrapper .from-text span { font-size: 30px; }
+  .about-section-3 .about-big-img.desktop { display: none; }
+  .about-section-3 .about-big-img.mobile { display: inline; }
 }
 
 .products-page h2 {
   padding-top: 90px;
   line-height: 72px
-}
-
-.products-page .products-item__wrap {
-  -webkit-box-shadow: 0px 0px 19.6px 0.4px rgba(61, 178, 216, 0.15);
-  box-shadow: 0px 0px 19.6px 0.4px rgba(61, 178, 216, 0.15)
 }
 
 .products-page-section {
@@ -2550,14 +2541,15 @@ body {
 }
 
 @media screen and (max-width: 640px) {
-  .products-page h2 {
-    padding-top: 30px
+  .products-page h2 { padding-top: 30px; }
+  .products-page .product-big-image {
+    width: auto;
+    height: 150px;
   }
+  .products-item { padding: 20px 0; }
 }
 
-.personnel-section-1 {
-  padding-bottom: 65px
-}
+.personnel-section-1 { padding-bottom: 65px; }
 
 .personnel-section-1 .personnel-text h2 {
   padding-top: 90px;
@@ -2569,9 +2561,7 @@ body {
   margin-top: 50px
 }
 
-.personnel-section-1 .personnel-list__item {
-  width: 25%
-}
+.personnel-section-1 .personnel-list__item { width: 25%; }
 
 .personnel-section-2 {
   position: relative;
@@ -2579,18 +2569,16 @@ body {
   background: #48d1fe
 }
 
-.personnel-section-2 .bg-wrapper {
-  overflow: hidden
-}
+.personnel-section-2 .bg-wrapper { overflow: hidden; }
 
 .personnel-section-2 .container {
   position: relative;
-  z-index: 5
+  z-index: 5;
 }
 
 .personnel-section-2 .slogan-container {
   max-width: 780px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .personnel-section-2 .slogan-container h4 {
@@ -2606,18 +2594,16 @@ body {
 
 .personnel-section-3 .container {
   position: relative;
-  z-index: 5
+  z-index: 5;
 }
 
 .personnel-section-3 .hint {
   margin-top: 40px;
   font-size: 12px;
-  color: #154b5c
+  color: #154b5c;
 }
 
-.personnel-section-3 .hint span {
-  color: #fe4848
-}
+.personnel-section-3 .hint span { color: #fe4848 }
 
 .technical-experts {
   max-width: 780px;
@@ -2733,13 +2719,14 @@ body {
 }
 
 .services-item.second, .services-item.fourth {
-  padding: 45px 0 160px 0
+  padding: 45px 0 0 0
 }
 
-.services-item.second img, .services-item.fourth img {
-  margin-top: -60px;
+.services-item.second img,
+.services-item.fourth img {
   width: 100%;
-  height: auto
+  height: auto;
+  margin-top: 60px;
 }
 
 .services-item.second h4, .services-item.fourth h4 {
@@ -2810,18 +2797,11 @@ body {
 }
 
 @media screen and (max-width: 1440px) {
-  .services-item.first .text {
-    padding-bottom: 150px
-  }
-  .services-item.second img {
-    margin-top: -40px
-  }
+  .services-item.first .text { padding-bottom: 150px }
 }
 
 @media screen and (max-width: 1366px) {
-  .services-item.third .photo {
-    left: 68%
-  }
+  .services-item.third .photo { left: 68% }
 }
 
 @media screen and (max-width: 960px) {
@@ -2829,29 +2809,18 @@ body {
     line-height: 60px;
     padding: 50px 0 30px 0
   }
-  .services-item h4 {
-    padding-left: 0
-  }
-  .services-item .text p {
-    padding-left: 0
-  }
-  .services-item.first .text {
-    padding-bottom: 50px
-  }
-  .services-item.second, .services-item.fourth {
-    padding: 50px 0
-  }
-  .services-item.second img, .services-item.fourth img {
-    margin-top: 0
-  }
-  .services-item.second p, .services-item.fourth p {
+  .services-item h4 { padding-left: 0 }
+  .services-item .text p { padding-left: 0 }
+  .services-item.first .text { padding-bottom: 50px }
+  .services-item.second { padding: 50px 0 0 0; }
+  .services-item.fourth { padding: 50px 0 }
+  .services-item.second p,
+  .services-item.fourth p {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1
   }
-  .services-item.third {
-    padding-bottom: 350px
-  }
+  .services-item.third { padding-bottom: 350px }
   .services-item.third h4 {
     padding-left: 0;
     max-width: inherit
@@ -2868,18 +2837,12 @@ body {
     bottom: 0;
     background-size: cover
   }
-  .services-item.fourth {
-    padding: 150px 0
-  }
+  .services-item.fourth { padding: 150px 0 }
 }
 
 @media screen and (max-width: 768px) {
-  .services-item.first {
-    padding-bottom: 430px
-  }
-  .services-item.first .heading {
-    position: static
-  }
+  .services-item.first { padding-bottom: 430px; }
+  .services-item.first .heading { position: static; }
   .services-item.first .heading .photo {
     top: auto;
     bottom: 0;
@@ -2888,22 +2851,19 @@ body {
     width: 100%;
     background-size: cover
   }
-  .services-item.second img, .services-item.fourth img {
-    margin-top: 20px
-  }
-  .services-item.second p, .services-item.fourth p {
+  .services-item.second img,
+  .services-item.fourth img { margin-top: 40px; }
+  .services-item.second p,
+  .services-item.fourth p {
     margin-top: 20px;
     width: 100%
   }
-  .services-item.second h4, .services-item.fourth h4 {
-    width: 100%
-  }
+  .services-item.second h4,
+  .services-item.fourth h4 { width: 100% }
   .services-item .text p {
     max-width: inherit
   }
-  .services-item.fourth .photo {
-    left: -25px
-  }
+  .services-item.fourth .photo { left: -25px; }
 }
 
 @media screen and (max-width: 640px) {
