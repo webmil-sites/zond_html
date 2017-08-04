@@ -1276,7 +1276,7 @@ body {
 }
 
 .main-page .main-header.fixed .logo-svg path {
-  fill: #232323
+  fill: #21783c;
 }
 
 .main-page .main-header.fixed .main-menu a {
@@ -1322,10 +1322,10 @@ body {
 }
 
 .main-logo {
-  margin: 21px 0 21px 55px;
+  margin: 9px 0 8px 55px;
   display: block;
   width: 103px;
-  height: 27px
+  height: 52px;
 }
 
 .logo-svg {
@@ -1333,13 +1333,11 @@ body {
   height: 100%
 }
 
-.logo-svg path {
-  fill: #232323
-}
+.logo-svg path { fill: #21783c; }
 
 .lang-switcher {
   margin: 5px 55px 0 0;
-  padding: 21px 0
+  padding: 21px 0;
 }
 
 .lang-switcher a {
@@ -1349,31 +1347,29 @@ body {
   line-height: 12px;
   font-weight: 300;
   text-transform: uppercase;
-  color: #9f9e9e
+  color: #9f9e9e;
 }
 
 .lang-switcher a.active {
   font-size: 18px;
   line-height: 18px;
   color: #373737;
-  font-weight: 500
+  font-weight: 500;
 }
 
 .main-menu li {
   display: inline-block;
   vertical-align: top;
   margin: 0 22px;
-  padding: 21px 0
+  padding: 21px 0;
 }
 
-.main-menu li.active {
-  border-bottom: 1px solid #aeeafe
-}
+.main-menu li.active { border-bottom: 1px solid #aeeafe; }
 
 .main-menu a {
   display: block;
   font-size: 16px;
-  line-height: 28px
+  line-height: 28px;
 }
 
 .burger-btn {
