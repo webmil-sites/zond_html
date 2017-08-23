@@ -1059,6 +1059,13 @@ body {
   height: auto
 }
 
+.products-item img.mobile { display: none; }
+
+@media screen and (max-width: 640px) {
+  .products-item img.desktop { display: none; }
+  .products-item img.mobile { display: inline; }
+}
+
 .products-item h6 {
   padding: 10px 0px;
   color: #fff;
